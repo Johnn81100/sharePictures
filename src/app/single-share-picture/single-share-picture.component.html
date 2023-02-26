@@ -1,0 +1,14 @@
+<div class="share_pictures_card" [ngClass]="{snapped:buttonText === 'Oops, unSnap!'}">
+    <h2>{{sharePictures.title | titlecase}}</h2>
+    <a routerLink="/sharePictures"> ⬅️ Back</a>
+    <p>Mise en ligne le {{sharePictures.createdDate | date:' MMMM yyyy'}}</p>
+    <img [src]='sharePictures.imageUrl' [alt]="sharePictures.title">
+    <p>{{sharePictures.description | lowercase}}</p>
+    <p>
+        <button  (click)="onClickSnap()">{{buttonText}}</button>
+       <span [ngStyle]= "{ color: 'rgb(0,'+ sharePictures.snaps + ',0)'}"> 👍{{sharePictures.snaps}}</span>
+    </p>
+    <!-- <p *ngIf="sharePictures.location === 'Paris'">photo prise à {{sharePictures.location}}</p> -->
+
+    <p *ngIf="sharePictures.location">photo prise à {{sharePictures.location | uppercase}}</p>
+</div>

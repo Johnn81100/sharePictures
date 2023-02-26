@@ -1,10 +1,12 @@
-<div class="share_pictures_card">
-    <h2>{{title}}</h2>
-    <p>Mise en ligne le {{createdDate}}</p>
-    <img [src]='imageUrl' [alt]="title">
-    <p>{{description}}</p>
-    <p>
-        <button  (click)="onClickSnap()">{{buttonText}}</button>
-        👍{{snaps}}
-    </p>
+<div class="share_pictures_card" [ngClass]="{snapped:buttonText === 'Oops, unSnap!'}">
+    <!-- DecimalPipe et PercentPipe acceptent un argument de configuration sous la forme   
+    'chiffresMinAvantVirgule.chiffresMinAprèsVirgule-    
+     chiffresMaxAprèsVirgule' 
+    <p>{{1000000.879 | number: '1.0-2'}} </p>
+    <p>{{ 00.3542 | percent: '1.0-2'}} </p>
+    <p>{{344.36 | currency:'EUR' }} </p>
+    <p>{{344.36 | currency:'EUR' : 'code'}} </p>-->
+    <h2>{{sharePictures.title | titlecase}}</h2>
+    <p>{{sharePictures.description | lowercase}}</p>
+    <button (click)="onViewSharePicture()" >VIEW</button>
 </div>
